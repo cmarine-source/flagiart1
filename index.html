@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flagiart - Salone di Parrucchiere a Gaeta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Evita scroll orizzontale in eccesso */
+        }
+        
+        /* Animazione Fade In */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animazione per le Service Cards */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px) scale(1.02); /* Leggero spostamento e ingrandimento */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Ombra più pronunciata */
+        }
+        
+        /* Animazione per le Gallery Items */
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden; /* Assicura che l'ingrandimento non esca dal bordo */
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08); /* Ingrandimento più visibile sull'immagine */
+        }
+
+        /* Hero Section overlay */
+        .hero-overlay {
+            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.7));
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="bg-white shadow-md fixed w-full z-20"> <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold text-gray-800 hover:text-gray-600 transition duration-300">Flagiart</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-gray-600 transition text-lg">Home</a>
+                <a href="#about" class="hover:text-gray-600 transition text-lg">Chi Siamo</a>
+                <a href="#services" class="hover:text-gray-600 transition text-lg">Servizi</a>
+                <a href="#gallery" class="hover:text-gray-600 transition text-lg">Galleria</a>
+                <a href="#contact" class="hover:text-gray-600 transition text-lg">Contatti</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-800 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg absolute w-full top-full left-0">
+            <a href="#home" class="block py-2 hover:text-gray-600 transition text-lg">Home</a>
+            <a href="#about" class="block py-2 hover:text-gray-600 transition text-lg">Chi Siamo</a>
+            <a href="#services" class="block py-2 hover:text-gray-600 transition text-lg">Servizi</a>
+            <a href="#gallery" class="block py-2 hover:text-gray-600 transition text-lg">Galleria</a>
+            <a href="#contact" class="block py-2 hover:text-gray-600 transition text-lg">Contatti</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+        <div class="absolute inset-0 hero-overlay"></div> 
+        <div class="container mx-auto px-4 text-center relative z-10 fade-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">Stile su misura per te</h1>
+            <p class="text-xl md:text-2xl mb-10 text-gray-700 max-w-2xl mx-auto">
+                Scopri Flagiart, dove la passione per la bellezza si unisce all'esperienza artigianale.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-black text-white px-10 py-4 rounded-full font-medium text-lg hover:bg-gray-800 transition duration-300 transform hover:scale-105 shadow-lg">Contattaci</a>
+                <a href="#services" class="bg-white text-black border border-black px-10 py-4 rounded-full font-medium text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg">I nostri servizi</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Chi Siamo</h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12 fade-in">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Giovanni Flagiello" class="rounded-lg shadow-xl w-full h-auto object-cover transform transition duration-500 hover:scale-102">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-gray-900">Flagiart - Salone di Parrucchiere</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Da oltre **15 anni** siamo il punto di riferimento per lo stile e la cura dei capelli nel cuore di Gaeta. La nostra missione è creare look personalizzati che esaltino la bellezza naturale di ogni cliente, seguendo le ultime tendenze con un approccio **artigianale** e innovativo.
+                    </p>
+                    <div class="mb-8 p-4 bg-gray-100 rounded-lg shadow-inner">
+                        <h4 class="text-xl font-medium mb-2 text-gray-800">Giovanni Flagiello</h4>
+                        <p class="text-gray-600">
+                            **Specialista** in taglio uomo/donna, colorazioni naturali, trattamenti di ricostruzione capellare e soluzioni personalizzate per ogni tipo di capello. La sua esperienza è la tua garanzia di eccellenza.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-lg">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-award text-yellow-500 mr-3 text-2xl"></i>
+                            <span>**Esperienza** consolidata</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-heart text-red-500 mr-3 text-2xl"></i>
+                            <span>Massima **attenzione al cliente**</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-cut text-blue-500 mr-3 text-2xl"></i>
+                            <span>**Tecniche moderne** e innovative</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-leaf text-green-500 mr-3 text-2xl"></i>
+                            <span>Utilizzo di **prodotti naturali**</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">I Nostri Servizi</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 fade-in">
+                    <div class="text-5xl text-pink-500 mb-4 text-center">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 text-center">Taglio Donna</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Taglio personalizzato in base alla forma del viso e allo stile di vita, con consigli professionali per la cura quotidiana e il mantenimento.
+                    </p>
+                    <p class="font-bold text-lg text-center text-gray-800">Da €25</p>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 fade-in">
+                    <div class="text-5xl text-blue-500 mb-4 text-center">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 text-center">Taglio Uomo</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Dalla precisione del taglio classico alle ultime tendenze moderne, con rifiniture curate, barba e trattamento viso opzionale.
+                    </p>
+                    <p class="font-bold text-lg text-center text-gray-800">Da €20</p>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 fade-in">
+                    <div class="text-5xl text-yellow-500 mb-4 text-center">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 text-center">Taglio Bambino</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Un ambiente accogliente e divertente per i più piccoli, con tagli alla moda e sicuri, adatti a tutte le età.
+                    </p>
+                    <p class="font-bold text-lg text-center text-gray-800">Da €15</p>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 fade-in">
+                    <div class="text-5xl text-purple-500 mb-4 text-center">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 text-center">Shampoo + Piega</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Trattamento completo con shampoo professionale, maschera nutriente e piega impeccabile con phon o piastra, per un look perfetto.
+                    </p>
+                    <p class="font-bold text-lg text-center text-gray-800">Da €30</p>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 fade-in">
+                    <div class="text-5xl text-red-500 mb-4 text-center">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 text-center">Colore & Balayage</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Dalle colorazioni naturali alle mèches, balayage e tecniche di illuminazione personalizzate, per esaltare la tua chioma.
+                    </p>
+                    <p class="font-bold text-lg text-center text-gray-800">Da €40</p>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 fade-in">
+                    <div class="text-5xl text-green-500 mb-4 text-center">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 text-center">Trattamenti Specifici</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Trattamenti avanzati di ricostruzione capelli, cheratina, anti-caduta e cura della barba, per la salute e la bellezza dei tuoi capelli.
+                    </p>
+                    <p class="font-bold text-lg text-center text-gray-800">Da €35</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">La Nostra Galleria</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Acconciatura Elegante" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Taglio Corto Moderno" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Interno Salone Luminoso" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Colorazione Balayage" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://www.donnesulweb.it/wp-content/uploads/2019/10/capelli-uomo-sfumati-rasati-riga-ciuffo-2020-09.jpg" alt="Taglio Uomo Sfumato" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://www.diako.it/wp-content/uploads/2024/05/Posa-1.png" alt="Dettaglio Postazione" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Contattaci per un Appuntamento!</h2>
+            <div class="flex flex-col lg:flex-row gap-12 justify-center">
+                <div class="lg:w-1/2 fade-in text-center lg:text-left">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-900">Trova il tuo Stile, Contattandoci Direttamente</h3>
+                    
+                    <div class="mb-6 bg-white p-6 rounded-lg shadow-md inline-block text-left">
+                        <p class="text-gray-700 mb-3 text-lg"><i class="fas fa-map-marker-alt mr-3 text-gray-600 text-xl"></i> **Corso Italia 98, Gaeta (LT)**</p>
+                        <a href="tel:+390771123456" class="text-gray-700 hover:text-gray-900 transition block text-lg mb-3">
+                            <i class="fas fa-phone mr-3 text-gray-600 text-xl"></i> **+39 0771 123456**
+                        </a>
+                        <a href="mailto:info@flagiart.com" class="text-gray-700 hover:text-gray-900 transition block text-lg">
+                            <i class="fas fa-envelope mr-3 text-gray-600 text-xl"></i> info@flagiart.com
+                        </a>
+                    </div>
+                    
+                    <div class="mb-8 p-6 bg-white rounded-lg shadow-md inline-block text-left mt-8">
+                        <h4 class="text-xl font-medium mb-3 text-gray-900">Orari di Apertura</h4>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>**Lunedì**: 9:00 - 19:00</li>
+                            <li>**Martedì**: Chiuso</li>
+                            <li>**Mercoledì-Venerdì**: 9:00 - 19:00</li>
+                            <li>**Sabato**: 8:00 - 18:00</li>
+                            <li>**Domenica**: Chiuso</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start items-center sm:space-x-6 space-y-4 sm:space-y-0">
+                        <a href="https://wa.me/393331234567" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-green-600 transition inline-flex items-center shadow-lg transform hover:scale-105 w-full sm:w-auto justify-center">
+                            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Scrivici su WhatsApp
+                        </a>
+                        <a href="https://instagram.com/tuoprofilo" target="_blank" class="bg-pink-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-pink-700 transition inline-flex items-center shadow-lg transform hover:scale-105 w-full sm:w-auto justify-center">
+                            <i class="fab fa-instagram mr-3 text-2xl"></i> Seguici su Instagram
+                        </a>
+                        <a href="https://facebook.com/tuoprofilo" target="_blank" class="bg-blue-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-blue-700 transition inline-flex items-center shadow-lg transform hover:scale-105 w-full sm:w-auto justify-center">
+                            <i class="fab fa-facebook-square mr-3 text-2xl"></i> Visitaci su Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 fade-in">
+                <h3 class="text-3xl font-bold mb-6 text-center text-gray-900">Dove Siamo</h3>
+                <div class="h-96 w-full bg-gray-200 rounded-lg overflow-hidden shadow-xl">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.498115655519!2d13.567080915354966!3d41.21147507927702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1338d3b5b1a20727%3A0x8d5c4b1a4a4d6f8!2sCorso%20Italia%2C%2098%2C%2004024%20Gaeta%20LT!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-3xl font-bold mb-3 text-white">Flagiart</h3>
+                    <p class="text-gray-400 text-lg">Il tuo stile, la nostra arte.</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4">Link rapidi</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Servizi</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition duration-300">Galleria</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contattaci</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Seguici</h4>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="https://instagram.com/tuoprofilo" target="_blank" class="text-3xl text-gray-400 hover:text-pink-500 transition transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/tuoprofilo" target="_blank" class="text-3xl text-gray-400 hover:text-blue-500 transition transform hover:scale-110">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 Flagiart. Tutti i diritti riservati. Realizzato con <span class="text-red-500">♥</span> a Gaeta.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                // Se l'elemento è visibile nel viewport
+                if (elementTop < windowHeight - 150) { // Ridotto il valore per far apparire prima
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Trigger on initial load and on scroll
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Smooth scrolling for anchor links and closing mobile menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Torna in cima se href="#"
+                    return;
+                }
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Chiudi il menu mobile se è aperto
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Ottieni l'altezza della navbar fissa
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - navbarHeight - 20, // Offset per la navbar e un po' di padding
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
